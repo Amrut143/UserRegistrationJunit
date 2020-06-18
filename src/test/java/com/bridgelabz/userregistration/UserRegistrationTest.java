@@ -27,4 +27,17 @@ public class UserRegistrationTest {
         Assert.assertFalse(result);
     }
 
+    /*TestCase for validating last name*/
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.validateLastName("Panda");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenLastName_WhenNotProper_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.validateLastName("Pa");
+        Assert.assertFalse(result);
+    }
 }
