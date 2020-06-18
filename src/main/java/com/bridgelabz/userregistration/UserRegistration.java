@@ -13,6 +13,7 @@ public class UserRegistration {
     private static final String LAST_NAME_PATTERN = "^[A-Z]{1}[a-zA-Z]{2,}$";
     private static final String EMAIL_PATTERN = "^[0-9a-zA-Z]+([-_+.][0-9a-zA-Z]+)*@[0-9A-Za-z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{3})*$";
     private static final String MOBILE_NUM_PATTERN = "^[0-9]{2}[ ]?[0-9]{10}$";
+    private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z]?)(?=.*[A-Z])(?=.*[@#$%]){1}.{8,})$";
 
     /*function to validate first name*/
     public boolean validateFirstName(String firstName) {
@@ -35,5 +36,11 @@ public class UserRegistration {
     public boolean validateMobileNumber(String mobileNumber) {
         Pattern pattern= Pattern.compile(MOBILE_NUM_PATTERN);
         return pattern.matcher(mobileNumber).matches();
+    }
+
+    /*function to validate password*/
+    public boolean validatePassword(String password) {
+        Pattern pattern= Pattern.compile(PASSWORD_PATTERN);
+        return pattern.matcher(password).matches();
     }
 }
