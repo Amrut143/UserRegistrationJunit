@@ -59,12 +59,11 @@ public class UserRegistrationTest {
     @Test
     public void givenEmail_WhenValid_ShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
-        Boolean result = userRegistration.validateEmail(this.arguement);
+        boolean result = userRegistration.validateEmail(this.arguement);
         Assert.assertEquals(this.expectedResult, result);
     }
-
     @Parameterized.Parameters
-    public static Collection<Object[]> data() {
+    public static Collection<Object[]> email() {
         Object[][] data = new Object[][]{
                 {"abc@yahoo.com", true},
                 {"abc.100@yahoo.com", true},
@@ -135,5 +134,26 @@ public class UserRegistrationTest {
     public void givenPhoneNumber_WhenImproper_NoSpaceInPhoneNumber_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
         Assert.assertFalse(userRegistration.validateMobileNumber("98756476 78"));
+    }
+
+    /*TestCase for validating password*/
+    @Parameterized.Parameters
+    public static Collection password() {
+        Object[][] data = new Object[][] {
+                {"Abc23@dda", true},
+                {"abc#45000", false},
+                {"Abc@#24usgh", false},
+                {"abcdef90", false},
+                {"AmitPanda@21", true},
+                {"!@#123456", false},
+                {"@899ADD", false}};
+
+        return Arrays.asList(data);
+    }
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.validatePassword(arguement);
+        Assert.assertEquals(expectedResult, result);
     }
 }
