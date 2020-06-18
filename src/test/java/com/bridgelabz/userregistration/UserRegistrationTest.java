@@ -88,4 +88,52 @@ public class UserRegistrationTest {
 
         return Arrays.asList(data);
     }
+    /*TestCase for validating mobile number*/
+    @Test
+    public void givenPhoneNumber_WhenProper_TenDigitNumberWithTwoDigitCountryCode_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertTrue(userRegistration.validateMobileNumber("919589347869"));
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenProper_OneSpaceAfterCountryCode_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertTrue(userRegistration.validateMobileNumber("91 9921370869"));
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenProper_CountryCodeTwoDigitNumber_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertTrue(userRegistration.validateMobileNumber("91 9937548869"));
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenImproper_CountryCodeThreeDigitNumber_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertFalse(userRegistration.validateMobileNumber("919 9945547869"));
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenProper_OnlyNumericValue_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertTrue(userRegistration.validateMobileNumber("919851747869"));
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenImproper_AlphaNumericValue_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertFalse(userRegistration.validateMobileNumber("961275t74f89"));
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenImproper_SpecialSymbol_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertFalse(userRegistration.validateMobileNumber("97876578#98"));
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenImproper_NoSpaceInPhoneNumber_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        Assert.assertFalse(userRegistration.validateMobileNumber("98756476 78"));
+    }
 }
