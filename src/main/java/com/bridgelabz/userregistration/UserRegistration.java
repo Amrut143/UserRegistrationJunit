@@ -17,30 +17,30 @@ public class UserRegistration {
 
     /*function to validate first name*/
     public boolean validateFirstName(String firstName) {
-        Pattern pattern= Pattern.compile(FIRST_NAME_PATTERN);
+        Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
         return pattern.matcher(firstName).matches();
     }
     /*function to validate last name*/
     public boolean validateLastName(String lastName) {
-        Pattern pattern= Pattern.compile(LAST_NAME_PATTERN);
+        Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
         return pattern.matcher(lastName).matches();
     }
 
     /*function to validate email address*/
     public boolean validateEmail(String email) {
-        Pattern pattern= Pattern.compile(EMAIL_PATTERN);
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         return pattern.matcher(email).matches();
     }
 
     /*function to validate mobile number*/
     public boolean validateMobileNumber(String mobileNumber) {
-        Pattern pattern= Pattern.compile(MOBILE_NUM_PATTERN);
+        Pattern pattern = Pattern.compile(MOBILE_NUM_PATTERN);
         return pattern.matcher(mobileNumber).matches();
     }
 
     /*function to validate password*/
     public boolean validatePassword(String password) {
-        Pattern pattern= Pattern.compile(PASSWORD_PATTERN);
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         return pattern.matcher(password).matches();
     }
 }
